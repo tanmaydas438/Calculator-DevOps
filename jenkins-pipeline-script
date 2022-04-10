@@ -1,0 +1,47 @@
+pipeline{
+    environment{
+        docker_image = ""
+    }
+    agent any
+    stages{
+        stage('Step 1: Git Clone'){
+            steps{
+                git branch: 'main', url: 'https://github.com/tanmaydas438/Calculator-DevOps.git'
+            }
+        }
+        stage('Step 2: Maven Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('Step 3: Build Docker Image'){ 
+            steps {
+                script {
+                    docker_image = docker.build "tanmaydas438/calculator_devops:latest"
+                }
+            }
+        }
+        stage('Step 4: Push docker image to hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'docker') {
+                        docker_image.push()
+                    }
+                }
+            }
+        }
+        stage('Step 5: Ansible Deployment'){
+            steps{
+                ansiblePlaybook becomeUser: null, 
+                colorized: true,
+                credentialsId: 'AnsibleToken',
+                installation: 'Ansible' 
+                disableHostKeyChecking: true, 
+                inventory: 'deployment/inventory', 
+                playbook: 'deployment/deploy.yml', 
+                sudoUser: null  
+            }          
+        }   
+    }
+     
+}
