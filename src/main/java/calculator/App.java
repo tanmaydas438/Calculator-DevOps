@@ -63,7 +63,7 @@ public class App {
 					case 5:
 						flag=false;
 						break;	
-					break;
+					
 
 					default: 
 						System.out.println("Please enter a valid choice");
