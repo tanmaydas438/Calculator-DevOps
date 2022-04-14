@@ -8,7 +8,7 @@ public class AppTest {
 	    public void test_squareRoot() {
 	        double a = 25.0;
 	        double expectedResult = 5.0;
-	        double result = App.squareRoot(a);
+	        double result = App.getRoot(a);
 	        Assert.assertEquals(expectedResult, result, 0.0f);
 	    }
 	
@@ -16,7 +16,7 @@ public class AppTest {
 	    public void test_factorial() {
 	        int a = 5;
 	        int expectedResult = 120;
-	        int result = App.factorial(a);
+	        int result = App.getFactorial(a);
 	        Assert.assertEquals(expectedResult, result);
 	    }
 		
@@ -24,7 +24,7 @@ public class AppTest {
 	    public void test_naturalLog() {
 	        double a = 2.718;
 	        double expectedResult = 1.0;
-	        double result = App.naturalLog(a);
+	        double result = App.getNaturalLog(a);
 	        Assert.assertEquals(expectedResult, result, 0.2f);
 	    }
 	
@@ -33,7 +33,7 @@ public class AppTest {
 	        double a = 2.0;
 			double b = 5.0;
 	        double expectedResult = 32.0;
-	        double result = App.power(a,b);
+	        double result = App.getPower(a,b);
 	        Assert.assertEquals(expectedResult, result, 0.0f);
 	    }
 	
