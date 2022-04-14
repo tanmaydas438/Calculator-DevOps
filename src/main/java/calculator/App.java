@@ -60,7 +60,7 @@ public class App {
 						exp = sc.nextDouble();
 						getPower(number1,exp);
 					case 5:
-						exit(0);	
+						exit(1);	
 					break;
 
 					default: 
@@ -68,19 +68,20 @@ public class App {
 						
 					}
 						
-		    }while(1);
+		    }while(true);
 		}
 
-	public static void getRoot(double number){
+	public static double getRoot(double number){
 		double result = Math.sqrt(number);
 		System.out.println("");
 		System.out.println("Square Root of "+number+" is:"+result);
 		System.out.println("");
 		loggen.info("Executing squareRoot function........");
+		return result;
 		
 	}
 
-	public static void getFactorial(int number){
+	public static int getFactorial(int number){
 		if(number<0)
 			{
 			 System.out.println("oops!! you enter a negative number");
@@ -88,7 +89,7 @@ public class App {
 			}
 		
 	    	int result = number ;
-		for(int i=num-1; i>=1; i--) 
+		for(int i=number-1; i>=1; i--) 
 			result= result*i;
 		if(result==0)
 			result=1;
@@ -96,22 +97,25 @@ public class App {
 		System.out.println("Factorial of "+number+" is:"+result);
 		System.out.println("");
 		loggen.info("Executing Factorial function........");
+		return result;
 		
 	}
-	public static void getNaturalLog(double number){
+	public static double getNaturalLog(double number){
 		double result = Math.log(number);	
 		System.out.println("");
 		System.out.println("Log of "+number+" is:"+result);
 		System.out.println("");
 		loggen.info("Executing naturalLog function........");
+		return result;
 		
 	}
-	  public static void getPower(double number, double exponent){
+	  public static double getPower(double number, double exponent){
 		double result = Math.pow(number,exponent);
 		System.out.println("");
 		System.out.println(number+" to the power "+exponent+" :"+result);
 		System.out.println("");
 		loggen.info("Executing Power function........");
+		return result;
 		
 	}
 
