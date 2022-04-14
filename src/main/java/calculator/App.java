@@ -60,6 +60,7 @@ public class App {
 						System.out.print("Please enter the exponent:");
 						exp = sc.nextDouble();
 						getPower(number1,exp);
+						break;
 					case 5:
 						flag=false;
 						break;	
