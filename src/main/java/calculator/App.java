@@ -8,6 +8,7 @@ public class App {
 		Scanner sc = new Scanner(System.in);
 		int ch;
 		int number;
+		boolean flag=true;
 		double number1;
 		double exp;
 		
@@ -60,7 +61,8 @@ public class App {
 						exp = sc.nextDouble();
 						getPower(number1,exp);
 					case 5:
-						exit(1);	
+						flag=false;
+						break;	
 					break;
 
 					default: 
@@ -68,7 +70,7 @@ public class App {
 						
 					}
 						
-		    }while(true);
+		    }while(flag);
 		}
 
 	public static double getRoot(double number){
@@ -85,7 +87,7 @@ public class App {
 		if(number<0)
 			{
 			 System.out.println("oops!! you enter a negative number");
-			 return;
+			 return 0;
 			}
 		
 	    	int result = number ;
